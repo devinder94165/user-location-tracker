@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Location Tracker</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 60px;
+        }
+        button {
+            padding: 12px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>User Location Tracker</h1>
+    <p>This app tracks your location only after your permission.</p>
+
+    <button onclick="getLocation()">Share My Location</button>
+    <p id="status"></p>
+
+    <br><br>
+    <a href="/map">
+      <button>View Live Map</button>
+    </a>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>

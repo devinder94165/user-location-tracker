@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Live Location List</title>
+</head>
+<body>
+
+<h2>Live Location Updates</h2>
+
+<table border="1" cellpadding="8">
+<thead>
+<tr>
+  <th>ID</th><th>Latitude</th><th>Longitude</th><th>Time</th>
+</tr>
+</thead>
+<tbody id="data"></tbody>
+</table>
+
+<script>
+function loadData() {
+  fetch("/api/locations")
+    .then(res => res.json())
+    .then(data => {
+      let rows = "";
+      data.forEach(d => {
+        rows += `
+        <tr>
+          <td>${d.id}</td>
+          <td>${d.latitude}</td>
+          <td>${d.longitude}</td>
+          <td>${d.time}</td>
+        </tr>`;
+      });
+      document.getElementById("data").innerHTML = rows;
+    });
+}
+
+loadData();
+setInterval(loadData, 5000); // auto-refresh every 5 sec
+</script>
+
+</body>
+</html>
